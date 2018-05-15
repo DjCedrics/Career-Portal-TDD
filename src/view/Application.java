@@ -16,7 +16,12 @@ import javax.swing.JComboBox;
 import javax.swing.JTextPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+
+import controller.LoginListener;
+
 import javax.swing.JLabel;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 
 /**
  * Application
@@ -69,63 +74,171 @@ public class Application {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		JPanel LoginScreen = new JPanel();
+		JButton loginButton = new JButton("Login");
+		JButton registerButton = new JButton("Register");
+		JButton socialMediaLoginPageButton = new JButton("Social Media Login");
+		JPanel ownedJobPostsScreen = new JPanel();
+		JComboBox selectJobsPostedComboBox = new JComboBox();
+		JComboBox viewApplicantsComboBox = new JComboBox();
+		JLabel applicantNameLabel = new JLabel("Applicant name");
+		JLabel applicantEducationLabel = new JLabel("Applicant education");
+		JLabel applicantCityLabel = new JLabel("Applicant city");
+		JLabel applicantGenderLabel = new JLabel("Applicant gender");
+		JLabel applicantEmailLabel = new JLabel("Applicant email");
+		JButton btnBackToHome = new JButton("Back to Home");
+		JPanel jobApplicationsScreen = new JPanel();
+		JComboBox selectApplicationButton = new JComboBox();
+		JButton cancelJobApplicationButton = new JButton("Cancel Application");
+		JButton backFromApplicationsToHomeButton = new JButton("Back to Home");
+		JPanel JobSearchScreen = new JPanel();
+		JButton jobSearchButton = new JButton("Search");
+		JComboBox jobSearchResultComboBox = new JComboBox();
+		JLabel jobTitleDisplayLabel = new JLabel("Job Title");
+		JTextPane jobDescriptionDisplayField = new JTextPane();
+		JLabel companyLabel = new JLabel("Company");
+		JButton applyToJobButton = new JButton("Apply");
+		JButton backFromJobSearchToHomeButton = new JButton("Back");
+		JPanel SocialMediaLoginScreen = new JPanel();
+		JButton socialMediaLoginButton = new JButton("Login");
+		JButton backFromSocialMediaToLoginButton = new JButton("Back to Normal Login");
+		JComboBox socialMediaComboBox = new JComboBox();
+		JPanel JobPostScreen = new JPanel();
+		JTextPane jobDescriptionField = new JTextPane();
+		JComboBox companySelectComboBox = new JComboBox();
+		JButton submitJobButton = new JButton("Submit Job");
+		JButton backFromJobPostToHomePageButton = new JButton("Back");
+		JPanel RegisterScreen = new JPanel();
+		JButton registerSubmitButton = new JButton("Register");
+		JComboBox genderComboBox = new JComboBox();
+		JButton backFromRegisterToLoginButton = new JButton("Back to Login");
+		
+		
+		
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new CardLayout(0, 0));
 		
-		JPanel ownedJobPostsScreen = new JPanel();
+		
+		frame.getContentPane().add(LoginScreen, "name_43874166817325");
+		LoginScreen.setLayout(null);
+		loginButton.setBounds(103, 165, 79, 29);
+		LoginScreen.add(loginButton);
+		
+		
+		registerButton.setBounds(252, 165, 95, 29);
+		LoginScreen.add(registerButton);
+		
+		passwordField = new JTextField();
+		passwordField.setBounds(150, 108, 134, 28);
+		LoginScreen.add(passwordField);
+		passwordField.setText("Password");
+		passwordField.setColumns(10);
+		
+		
+		socialMediaLoginPageButton.setBounds(143, 206, 161, 29);
+		LoginScreen.add(socialMediaLoginPageButton);
+		
+		loginField = new JTextField();
+		loginField.setBounds(150, 68, 134, 28);
+		LoginScreen.add(loginField);
+		loginField.setText("Login");
+		loginField.setColumns(10);
+		registerButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		JPanel HomeScreen = new JPanel();
+		JButton searchForJobsButton = new JButton("Search for Jobs");
+		JButton postNewJobButton = new JButton("Post new Job");
+		JButton appliedJobsButton = new JButton("View Applied Jobs");
+		JButton ownedJobPostsButton = new JButton("View Owned Job Posts");
+		JButton exitButton = new JButton("Exit");
+		
+		
+		loginButton.addActionListener(new LoginListener(LoginScreen, HomeScreen));
+		
+		
+		frame.getContentPane().add(HomeScreen, "name_44208384114847");
+		HomeScreen.setLayout(null);
+		
+		
+		searchForJobsButton.setBounds(141, 74, 150, 29);
+		HomeScreen.add(searchForJobsButton);
+		
+		
+		postNewJobButton.setBounds(156, 114, 117, 29);
+		HomeScreen.add(postNewJobButton);
+		
+		
+		appliedJobsButton.setBounds(141, 159, 150, 29);
+		HomeScreen.add(appliedJobsButton);
+		
+		
+		ownedJobPostsButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		ownedJobPostsButton.setBounds(120, 200, 182, 29);
+		HomeScreen.add(ownedJobPostsButton);
+		
+		
+		exitButton.setBounds(156, 243, 117, 29);
+		HomeScreen.add(exitButton);
+		
+		
 		frame.getContentPane().add(ownedJobPostsScreen, "name_45599628724348");
 		ownedJobPostsScreen.setLayout(null);
 		
-		JComboBox selectJobsPostedComboBox = new JComboBox();
+		
 		selectJobsPostedComboBox.setBounds(34, 42, 123, 27);
 		ownedJobPostsScreen.add(selectJobsPostedComboBox);
 		
-		JComboBox viewApplicantsComboBox = new JComboBox();
+		
 		viewApplicantsComboBox.setBounds(241, 43, 134, 27);
 		ownedJobPostsScreen.add(viewApplicantsComboBox);
 		
-		JLabel applicantNameLabel = new JLabel("Applicant name");
+		
 		applicantNameLabel.setBounds(241, 94, 173, 16);
 		ownedJobPostsScreen.add(applicantNameLabel);
 		
-		JLabel applicantEducationLabel = new JLabel("Applicant education");
+		
 		applicantEducationLabel.setBounds(241, 122, 173, 16);
 		ownedJobPostsScreen.add(applicantEducationLabel);
 		
-		JLabel applicantCityLabel = new JLabel("Applicant city");
+		
 		applicantCityLabel.setBounds(241, 150, 167, 16);
 		ownedJobPostsScreen.add(applicantCityLabel);
 		
-		JLabel applicantGenderLabel = new JLabel("Applicant gender");
+		
 		applicantGenderLabel.setBounds(241, 176, 173, 16);
 		ownedJobPostsScreen.add(applicantGenderLabel);
 		
-		JLabel applicantEmailLabel = new JLabel("Applicant email");
+		
 		applicantEmailLabel.setBounds(241, 201, 173, 16);
 		ownedJobPostsScreen.add(applicantEmailLabel);
 		
-		JButton btnBackToHome = new JButton("Back to Home");
+		
 		btnBackToHome.setBounds(160, 229, 117, 29);
 		ownedJobPostsScreen.add(btnBackToHome);
 		
-		JPanel jobApplicationsScreen = new JPanel();
+		
 		frame.getContentPane().add(jobApplicationsScreen, "name_45258806092038");
 		jobApplicationsScreen.setLayout(null);
 		
-		JComboBox selectApplicationButton = new JComboBox();
+		
 		selectApplicationButton.setBounds(55, 44, 124, 27);
 		jobApplicationsScreen.add(selectApplicationButton);
 		
-		JButton cancelJobApplicationButton = new JButton("Cancel Application");
+		
 		cancelJobApplicationButton.setBounds(215, 43, 196, 29);
 		jobApplicationsScreen.add(cancelJobApplicationButton);
 		
-		JButton backFromApplicationsToHomeButton = new JButton("Back to Home");
+		
 		backFromApplicationsToHomeButton.setBounds(162, 216, 117, 29);
 		jobApplicationsScreen.add(backFromApplicationsToHomeButton);
 		
-		JPanel JobSearchScreen = new JPanel();
+		
 		frame.getContentPane().add(JobSearchScreen, "name_44933932099250");
 		JobSearchScreen.setLayout(null);
 		
@@ -135,32 +248,32 @@ public class Application {
 		JobSearchScreen.add(jobSearchQuery);
 		jobSearchQuery.setColumns(10);
 		
-		JButton jobSearchButton = new JButton("Search");
+		
 		jobSearchButton.setBounds(239, 7, 117, 29);
 		JobSearchScreen.add(jobSearchButton);
 		
-		JComboBox jobSearchResultComboBox = new JComboBox();
+		
 		jobSearchResultComboBox.setBounds(6, 62, 161, 27);
 		JobSearchScreen.add(jobSearchResultComboBox);
 		
-		JLabel jobTitleDisplayLabel = new JLabel("Job Title");
+		
 		jobTitleDisplayLabel.setBounds(288, 64, 61, 16);
 		JobSearchScreen.add(jobTitleDisplayLabel);
 		
-		JTextPane jobDescriptionDisplayField = new JTextPane();
+		
 		jobDescriptionDisplayField.setText("Job Description");
 		jobDescriptionDisplayField.setBounds(216, 97, 217, 101);
 		JobSearchScreen.add(jobDescriptionDisplayField);
 		
-		JLabel companyLabel = new JLabel("Company");
+		
 		companyLabel.setBounds(215, 210, 61, 16);
 		JobSearchScreen.add(companyLabel);
 		
-		JButton applyToJobButton = new JButton("Apply");
+		
 		applyToJobButton.setBounds(316, 205, 117, 29);
 		JobSearchScreen.add(applyToJobButton);
 		
-		JButton backFromJobSearchToHomeButton = new JButton("Back");
+		
 		backFromJobSearchToHomeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -168,39 +281,11 @@ public class Application {
 		backFromJobSearchToHomeButton.setBounds(159, 232, 117, 29);
 		JobSearchScreen.add(backFromJobSearchToHomeButton);
 		
-		JPanel HomeScreen = new JPanel();
-		frame.getContentPane().add(HomeScreen, "name_44208384114847");
-		HomeScreen.setLayout(null);
 		
-		JButton searchForJobsButton = new JButton("Search for Jobs");
-		searchForJobsButton.setBounds(141, 74, 150, 29);
-		HomeScreen.add(searchForJobsButton);
-		
-		JButton postNewJobButton = new JButton("Post new Job");
-		postNewJobButton.setBounds(156, 114, 117, 29);
-		HomeScreen.add(postNewJobButton);
-		
-		JButton appliedJobsButton = new JButton("View Applied Jobs");
-		appliedJobsButton.setBounds(141, 159, 150, 29);
-		HomeScreen.add(appliedJobsButton);
-		
-		JButton ownedJobPostsButton = new JButton("View Owned Job Posts");
-		ownedJobPostsButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		ownedJobPostsButton.setBounds(120, 200, 182, 29);
-		HomeScreen.add(ownedJobPostsButton);
-		
-		JButton exitButton = new JButton("Exit");
-		exitButton.setBounds(156, 243, 117, 29);
-		HomeScreen.add(exitButton);
-		
-		JPanel SocialMediaLoginScreen = new JPanel();
 		frame.getContentPane().add(SocialMediaLoginScreen, "name_43927209351366");
 		SocialMediaLoginScreen.setLayout(null);
 		
-		JButton socialMediaLoginButton = new JButton("Login");
+		
 		socialMediaLoginButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -214,7 +299,7 @@ public class Application {
 		SocialMediaLoginScreen.add(socialMediaPasswordField);
 		socialMediaPasswordField.setColumns(10);
 		
-		JButton backFromSocialMediaToLoginButton = new JButton("Back to Normal Login");
+		
 		backFromSocialMediaToLoginButton.setBounds(130, 227, 179, 29);
 		SocialMediaLoginScreen.add(backFromSocialMediaToLoginButton);
 		
@@ -224,39 +309,11 @@ public class Application {
 		socialMediaEmailField.setBounds(111, 82, 220, 28);
 		SocialMediaLoginScreen.add(socialMediaEmailField);
 		
-		JComboBox socialMediaComboBox = new JComboBox();
+		
 		socialMediaComboBox.setBounds(150, 26, 144, 27);
 		SocialMediaLoginScreen.add(socialMediaComboBox);
 		
-		JPanel LoginScreen = new JPanel();
-		frame.getContentPane().add(LoginScreen, "name_43874166817325");
-		LoginScreen.setLayout(null);
 		
-		JButton loginButton = new JButton("Login");
-		loginButton.setBounds(103, 165, 79, 29);
-		LoginScreen.add(loginButton);
-		
-		JButton registerButton = new JButton("Register");
-		registerButton.setBounds(252, 165, 95, 29);
-		LoginScreen.add(registerButton);
-		
-		passwordField = new JTextField();
-		passwordField.setBounds(150, 108, 134, 28);
-		LoginScreen.add(passwordField);
-		passwordField.setText("Password");
-		passwordField.setColumns(10);
-		
-		JButton socialMediaLoginPageButton = new JButton("Social Media Login");
-		socialMediaLoginPageButton.setBounds(143, 206, 161, 29);
-		LoginScreen.add(socialMediaLoginPageButton);
-		
-		loginField = new JTextField();
-		loginField.setBounds(150, 68, 134, 28);
-		LoginScreen.add(loginField);
-		loginField.setText("Login");
-		loginField.setColumns(10);
-		
-		JPanel JobPostScreen = new JPanel();
 		frame.getContentPane().add(JobPostScreen, "name_44308268472030");
 		JobPostScreen.setLayout(null);
 		
@@ -266,20 +323,21 @@ public class Application {
 		JobPostScreen.add(jobTitleField);
 		jobTitleField.setColumns(10);
 		
-		JTextPane jobDescriptionField = new JTextPane();
+		
+		
 		jobDescriptionField.setText("Job description");
 		jobDescriptionField.setBounds(143, 79, 134, 68);
 		JobPostScreen.add(jobDescriptionField);
 		
-		JComboBox companySelectComboBox = new JComboBox();
+		
 		companySelectComboBox.setBounds(143, 159, 134, 27);
 		JobPostScreen.add(companySelectComboBox);
 		
-		JButton submitJobButton = new JButton("Submit Job");
+		
 		submitJobButton.setBounds(153, 198, 117, 29);
 		JobPostScreen.add(submitJobButton);
 		
-		JButton backFromJobPostToHomePageButton = new JButton("Back");
+		
 		backFromJobPostToHomePageButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -287,7 +345,7 @@ public class Application {
 		backFromJobPostToHomePageButton.setBounds(160, 227, 117, 29);
 		JobPostScreen.add(backFromJobPostToHomePageButton);
 		
-		JPanel RegisterScreen = new JPanel();
+		
 		frame.getContentPane().add(RegisterScreen, "name_48222902012559");
 		RegisterScreen.setLayout(null);
 		
@@ -309,7 +367,7 @@ public class Application {
 		educationField.setBounds(152, 100, 134, 28);
 		RegisterScreen.add(educationField);
 		
-		JComboBox genderComboBox = new JComboBox();
+		
 		genderComboBox.setBounds(152, 218, 134, 27);
 		RegisterScreen.add(genderComboBox);
 		
@@ -338,16 +396,20 @@ public class Application {
 		RegisterScreen.add(passwordRegisterField);
 		passwordRegisterField.setColumns(10);
 		
-		JButton registerSubmitButton = new JButton("Register");
+		
 		registerSubmitButton.setBounds(312, 141, 117, 29);
 		RegisterScreen.add(registerSubmitButton);
 		
-		JButton backFromRegisterToLoginButton = new JButton("Back to Login");
+		
 		backFromRegisterToLoginButton.setBounds(312, 181, 117, 29);
 		RegisterScreen.add(backFromRegisterToLoginButton);
-		registerButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+	}
+	private class SwingAction extends AbstractAction {
+		public SwingAction() {
+			putValue(NAME, "SwingAction");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+		}
 	}
 }
