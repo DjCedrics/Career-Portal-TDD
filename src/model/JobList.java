@@ -13,7 +13,6 @@ import java.util.List;
  */
 public class JobList {
 	
-<<<<<<< HEAD
 	// Properties
 	public List<Job> jobsPosted;
 	
@@ -33,8 +32,5 @@ public class JobList {
 	}
 	
 	
-=======
-	//Pushluyoom
->>>>>>> origin/master
 
 }
