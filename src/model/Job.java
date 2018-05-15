@@ -71,6 +71,30 @@ public class Job {
 	
 	// Methods
 	
+	/**
+	 * Get Applicant
+	 * Get the applicant who has an application to a job
+	 * 
+	 * @param User u
+	 * @return User who applied for the job
+	 */
 	
+	public User getApplicant(User u)
+	{
+		return null;
+	}
+	
+	/**
+	 * Has Applications
+	 * Return if the given user has an application to the job
+	 * 
+	 * @param User u
+	 * @return True, if user has an application to the job. False, otherwise.
+	 */
+	
+	public boolean hasApplication(User u)
+	{
+		return false;
+	}
 
 }
