@@ -155,6 +155,11 @@ public class User {
 		
 	}
 	
+	public void postJob(Job j)
+	{
+		
+	}
+	
 	
 	
 
