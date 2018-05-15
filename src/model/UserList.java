@@ -3,6 +3,7 @@
  */
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
  * @author djcedrics
  * @date May 15, 2018
  */
-public class UserList {
+public class UserList implements Serializable{
 	
 	private List<User> users;
 	
