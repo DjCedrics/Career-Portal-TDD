@@ -10,5 +10,7 @@ package model;
  * @date May 15, 2018
  */
 public class JobList {
+	
+	//Pushluyoom
 
 }
