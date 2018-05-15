@@ -40,7 +40,7 @@ public class User {
 	 * @param city
 	 */
 	public User(String name, String surname, int age, String gender,
-			String education, String city, String email, String password, SocialMediaAccount socialMediaAcccount) {
+			String education, String city, String email, String password) {
 		this.name = name;
 		this.surname = surname;
 		this.age = age;
@@ -49,7 +49,6 @@ public class User {
 		this.city = city;
 		this.email = email;
 		this.password = password;
-		this.socialMediaAccount = socialMediaAccount;
 		appliedJobs = new ArrayList<Job>();
 		ownedJobPosts = new ArrayList<Job>();
 	}
@@ -145,9 +144,9 @@ public class User {
 	
 	// Methods
 	
-	public void applyToJob(Job j)
+	public Job applyToJob(Job j)
 	{
-		
+		return null;
 	}
 	
 	public void cancelApplicationToJob(Job j)
