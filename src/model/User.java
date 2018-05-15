@@ -3,6 +3,9 @@
  */
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * User
  *
@@ -11,7 +14,6 @@ package model;
  */
 public class User {
 	
-	private enum ACCOUNT_TYPE { Personal, Corporate };
 	
 	// Properties
 	private String name;
@@ -20,11 +22,13 @@ public class User {
 	private String gender;
 	private String education;
 	private String city;
+	
+	private List<Job> appliedJobs;
+	private List<Job> ownedJobPosts;
 	// Credentials
 	private String email;
 	private String password;
 	private SocialMediaAccount socialMediaAccount;
-	private ACCOUNT_TYPE type;
 	
 	/**
 	 * User constructor
@@ -36,7 +40,7 @@ public class User {
 	 * @param city
 	 */
 	public User(String name, String surname, int age, String gender,
-			String education, String city, String email, String password, SocialMediaAccount socialMediaAcccount, ACCOUNT_TYPE type) {
+			String education, String city, String email, String password, SocialMediaAccount socialMediaAcccount) {
 		this.name = name;
 		this.surname = surname;
 		this.age = age;
@@ -46,7 +50,8 @@ public class User {
 		this.email = email;
 		this.password = password;
 		this.socialMediaAccount = socialMediaAccount;
-		this.type = type;
+		appliedJobs = new ArrayList<Job>();
+		ownedJobPosts = new ArrayList<Job>();
 	}
 	
 	
@@ -119,15 +124,36 @@ public class User {
 	}
 
 
-	public ACCOUNT_TYPE getType() {
-		return type;
+	public List<Job> getAppliedJobs() {
+		return appliedJobs;
 	}
 
 
-	public void setType(ACCOUNT_TYPE type) {
-		this.type = type;
+	public void setAppliedJobs(List<Job> appliedJobs) {
+		this.appliedJobs = appliedJobs;
+	}
+
+
+	public List<Job> getOwnedJobPosts() {
+		return ownedJobPosts;
+	}
+
+
+	public void setOwnedJobPosts(List<Job> ownedJobPosts) {
+		this.ownedJobPosts = ownedJobPosts;
 	}
 	
+	// Methods
+	
+	public void applyToJob(Job j)
+	{
+		
+	}
+	
+	public void cancelApplicationToJob(Job j)
+	{
+		
+	}
 	
 	
 	

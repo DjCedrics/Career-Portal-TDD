@@ -33,6 +33,13 @@ public class Application {
 	private JTextField socialMediaEmailField;
 	private JTextField jobTitleField;
 	private JTextField jobSearchQuery;
+	private JTextField nameField;
+	private JTextField surnameField;
+	private JTextField educationField;
+	private JTextField cityField;
+	private JTextField ageField;
+	private JTextField emailField;
+	private JTextField passwordRegisterField;
 
 	/**
 	 * Launch the application.
@@ -279,6 +286,65 @@ public class Application {
 		});
 		backFromJobPostToHomePageButton.setBounds(160, 227, 117, 29);
 		JobPostScreen.add(backFromJobPostToHomePageButton);
+		
+		JPanel RegisterScreen = new JPanel();
+		frame.getContentPane().add(RegisterScreen, "name_48222902012559");
+		RegisterScreen.setLayout(null);
+		
+		nameField = new JTextField();
+		nameField.setText("Name");
+		nameField.setBounds(152, 20, 134, 28);
+		RegisterScreen.add(nameField);
+		nameField.setColumns(10);
+		
+		surnameField = new JTextField();
+		surnameField.setText("Surname");
+		surnameField.setColumns(10);
+		surnameField.setBounds(152, 60, 134, 28);
+		RegisterScreen.add(surnameField);
+		
+		educationField = new JTextField();
+		educationField.setText("Education");
+		educationField.setColumns(10);
+		educationField.setBounds(152, 100, 134, 28);
+		RegisterScreen.add(educationField);
+		
+		JComboBox genderComboBox = new JComboBox();
+		genderComboBox.setBounds(152, 218, 134, 27);
+		RegisterScreen.add(genderComboBox);
+		
+		cityField = new JTextField();
+		cityField.setText("City");
+		cityField.setColumns(10);
+		cityField.setBounds(152, 140, 134, 28);
+		RegisterScreen.add(cityField);
+		
+		ageField = new JTextField();
+		ageField.setText("Age");
+		ageField.setBounds(152, 180, 134, 28);
+		RegisterScreen.add(ageField);
+		ageField.setColumns(10);
+		
+		emailField = new JTextField();
+		emailField.setText("Email");
+		emailField.setBounds(6, 140, 134, 28);
+		RegisterScreen.add(emailField);
+		emailField.setColumns(10);
+		
+		passwordRegisterField = new JTextField();
+		passwordRegisterField.setText("Password");
+		passwordRegisterField.setToolTipText("password");
+		passwordRegisterField.setBounds(6, 180, 134, 28);
+		RegisterScreen.add(passwordRegisterField);
+		passwordRegisterField.setColumns(10);
+		
+		JButton registerSubmitButton = new JButton("Register");
+		registerSubmitButton.setBounds(312, 141, 117, 29);
+		RegisterScreen.add(registerSubmitButton);
+		
+		JButton backFromRegisterToLoginButton = new JButton("Back to Login");
+		backFromRegisterToLoginButton.setBounds(312, 181, 117, 29);
+		RegisterScreen.add(backFromRegisterToLoginButton);
 		registerButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}

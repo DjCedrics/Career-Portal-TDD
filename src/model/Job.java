@@ -3,6 +3,7 @@
  */
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,14 +29,13 @@ public class Job {
 	 * @param owner
 	 * @param applicants
 	 */
-	public Job(String jobTitle, String description, String company, User owner,
-			List<User> applicants) {
+	public Job(String jobTitle, String description, String company, User owner) {
 		super();
 		this.jobTitle = jobTitle;
 		this.description = description;
 		this.company = company;
 		this.owner = owner;
-		this.applicants = applicants;
+		applicants = new ArrayList<User>();
 	}
 	
 	public String getJobTitle() {
@@ -68,6 +68,8 @@ public class Job {
 	public void setApplicants(List<User> applicants) {
 		this.applicants = applicants;
 	}
+	
+	// Methods
 	
 	
 

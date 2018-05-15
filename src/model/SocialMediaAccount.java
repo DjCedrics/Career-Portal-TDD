@@ -25,6 +25,7 @@ public class SocialMediaAccount {
 	// Credentials
 	private String email;
 	private String password;
+	
 	public SocialMediaAccount getSOCIAL_MEDIA_TYPE() {
 		return SOCIAL_MEDIA_TYPE;
 	}
