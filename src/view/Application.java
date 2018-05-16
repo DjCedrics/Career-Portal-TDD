@@ -20,6 +20,7 @@ import javax.swing.ListSelectionModel;
 import controller.LoginListener;
 import controller.PanelChangeListener;
 import controller.RegisterListener;
+import model.User;
 
 import javax.swing.JLabel;
 import javax.swing.AbstractAction;
@@ -47,6 +48,37 @@ public class Application {
 	private JTextField ageField;
 	private JTextField emailField;
 	private JTextField passwordRegisterField;
+	private JPanel RegisterScreen;
+	private JButton registerButton;
+	private JButton registerSubmitButton;
+	
+	public void registerTheUser(User u) {
+		//Not yet implemented, is called when register submit button is clicked
+	}
+
+	public JButton getRegisterSubmitButton() {
+		return registerSubmitButton;
+	}
+
+	public void setRegisterSubmitButton(JButton registerSubmitButton) {
+		this.registerSubmitButton = registerSubmitButton;
+	}
+
+	public JButton getRegisterButton() {
+		return registerButton;
+	}
+
+	public void setRegisterButton(JButton registerButton) {
+		this.registerButton = registerButton;
+	}
+
+	public JPanel getRegisterScreen() {
+		return RegisterScreen;
+	}
+
+	public void setRegisterScreen(JPanel registerScreen) {
+		RegisterScreen = registerScreen;
+	}
 
 	/**
 	 * Launch the application.
@@ -84,14 +116,14 @@ public class Application {
 		JPanel JobSearchScreen = new JPanel();
 		JPanel SocialMediaLoginScreen = new JPanel();
 		JPanel JobPostScreen = new JPanel();
-		JPanel RegisterScreen = new JPanel();
+		this.RegisterScreen = new JPanel();
 		JPanel HomeScreen = new JPanel();
 		
 		
 		
 		// Initialize buttons
 		JButton loginButton = new JButton("Login");
-		JButton registerButton = new JButton("Register");
+	    registerButton = new JButton("Register");
 		JButton socialMediaLoginPageButton = new JButton("Social Media Login");
 		JButton backFromOwnedJobPostsToHomeButton = new JButton("Back to Home");
 		JButton cancelJobApplicationButton = new JButton("Cancel Application");
@@ -102,7 +134,7 @@ public class Application {
 		JButton backFromSocialMediaToLoginButton = new JButton("Back to Normal Login");
 		JButton submitJobButton = new JButton("Submit Job");
 		JButton backFromJobPostToHomePageButton = new JButton("Back");
-		JButton registerSubmitButton = new JButton("Register");
+		registerSubmitButton = new JButton("Register");
 		JButton searchForJobsButton = new JButton("Search for Jobs");
 		JButton postNewJobButton = new JButton("Post new Job");
 		JButton appliedJobsButton = new JButton("View Applied Jobs");
