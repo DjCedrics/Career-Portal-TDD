@@ -27,9 +27,8 @@ public class UserTest {
 		JPanel registerScreen = testApplication.getRegisterScreen(); //Gets the registration screen from the Application view
 		assertNotNull(registerScreen); //Check if registration screen is initialized
 		User u1 = new User("John", "Doe", 21, "Male", "Bilkent", "Ankara", "johndoe@mail.com", "johndoe123"); //Create a user
-		testApplication.registerTheUser(u1); //Should Register a given user
-		UserList userlist = new UserList();
-		assertEquals(1,userlist.getUsers().size()); //Having added a new user the userlist should be one
+		testApplication.registerTheUser(u1); //Should Register a given user. In other words, should update the UserListArray in UserList class
+		assertEquals(1,UserList.getUsers().size()); //Having added a new user the userlist should be one
 	}
 
 	/**

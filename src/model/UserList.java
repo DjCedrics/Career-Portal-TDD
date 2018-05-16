@@ -15,14 +15,14 @@ import java.util.List;
  */
 public class UserList implements Serializable{
 	
-	private static List<User> users;
+	public static List<User> users;
 	
-	public List<User> getUsers() {
+	public static List<User> getUsers() {
 		return users;
 	}
 
-	public void setUsers(List<User> users) {
-		this.users = users;
+	public static void setUsers(List<User> users2) {
+		users = users2;
 	}
 
 	public UserList()
