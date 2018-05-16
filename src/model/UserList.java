@@ -13,7 +13,7 @@ import java.util.List;
  * @author djcedrics
  * @date May 15, 2018
  */
-public class UserList implements Serializable{
+public class UserList {
 	
 	public static List<User> users;
 	

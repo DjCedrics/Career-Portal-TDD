@@ -1,8 +1,10 @@
-package controller;
+package tests;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import controller.LoginListener;
 
 public class LoginAndRegistrationPageTransmissionTest {
 

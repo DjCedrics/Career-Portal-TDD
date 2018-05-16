@@ -13,7 +13,7 @@ import java.util.List;
 public class JobList {
 	
 	// Properties
-	public List<Job> jobsPosted;
+	public static List<Job> jobsPosted;
 	
 	/** JobList Constructor
 	 * @param jobsPosted
@@ -29,6 +29,14 @@ public class JobList {
 	public void setJobsPosted(List<Job> jobsPosted) {
 		this.jobsPosted = jobsPosted;
 	}
+	
+	public static Job searchJob(Job j)
+	{
+		return null;
+	}
+	
+	
+	
 	
 	
 

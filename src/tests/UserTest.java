@@ -47,7 +47,7 @@ public class UserTest {
 			fail("Cannot test login since there are problems with registering");
 			return;
 		}
-		//If the registeration is successfull continue with testing the login with email and password feature
+		//If the  - is successfull continue with testing the login with email and password feature
 		assertTrue(testApplication.loginWithEmailAndPassword("johndoe@mail.com", "johndoe123")); //Should return true in case of successfull login
 	}
 	
@@ -56,6 +56,7 @@ public class UserTest {
 		//Firstly register a user to be able to check for login
 		Application testApplication = new Application();
 		JPanel socialMediaScreen = testApplication.getSocialMediaLoginScreen();
+		
 		if(socialMediaScreen == null) {
 			fail("Cannot test social media feature since there are problems with registering");
 			return;
@@ -71,13 +72,20 @@ public class UserTest {
 	 */
 	@Test
 	public void testApplyToJob() {
+		Application testApplication = new Application();
+		JPanel jobApplicationScreen = testApplication.getJobApplicationsScreen();
+		
+		assertNotNull("Job application screen has not been initialized", jobApplicationScreen);
+		
 		User u1 = new User("John", "Doe", 21, "Male", "Bilkent", "Ankara", "johndoe@mail.com", "johndoe123");
 		User u2 = new User("Jane", "Doe", 25, "Female", "Bilkent", "Ankara", "janedoe@mail.com", "janedoe123");
 		
 		Job j = new Job("Software Developer", "5+ years experience", "SimSoft", u2);
-		
-		assertEquals("SimSoft Software Developer job should be in applied jobs list of John Doe", j, u1.applyToJob(j));
+
+		assertEquals("The job applied should be in applied jobs list", u1.getAppliedJobs().get(u1.getAppliedJobs().size() - 1), u1.applyToJob(j));
 	}
+	
+
 	
 
 	/**
@@ -85,7 +93,23 @@ public class UserTest {
 	 */
 	@Test
 	public void testCancelApplicationToJob() {
-		fail("Not yet implemented");
+		
+		Application testApplication = new Application();
+		JPanel jobApplicationScreen = testApplication.getJobApplicationsScreen();
+		
+		assertNotNull("Job application screen has not been initialized", jobApplicationScreen);
+		
+		User u1 = new User("John", "Doe", 21, "Male", "Bilkent", "Ankara", "johndoe@mail.com", "johndoe123");
+		User u2 = new User("Jane", "Doe", 25, "Female", "Bilkent", "Ankara", "janedoe@mail.com", "janedoe123");
+		
+		Job j = new Job("Software Developer", "5+ years experience", "SimSoft", u2);
+		
+		u1.getAppliedJobs().add(j);
+		
+		u1.cancelApplicationToJob(j);
+		
+		assertEquals("Cancellation of the job application failed.", 0, u1.getAppliedJobs().size());
+		
 	}
 
 	/**
@@ -93,7 +117,18 @@ public class UserTest {
 	 */
 	@Test
 	public void testPostJob() {
-		fail("Not yet implemented");
+		
+		Application testApplication = new Application();
+		JPanel jobPostScreen = testApplication.getJobPostScreen();
+		
+		assertNotNull("Job application screen has not been initialized", jobPostScreen);
+		
+		User u2 = new User("Jane", "Doe", 25, "Female", "Bilkent", "Ankara", "janedoe@mail.com", "janedoe123");
+		
+		Job j = new Job("Software Developer", "5+ years experience", "SimSoft", u2);
+		
+		assertEquals("Job could not be posted properly", u2.getOwnedJobPosts().get(u2.getOwnedJobPosts().size() - 1), u2.postJob(j));
+		
 	}
 	
 	

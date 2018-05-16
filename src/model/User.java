@@ -142,13 +142,13 @@ public class User {
 		return null;
 	}
 	
-	public void cancelApplicationToJob(Job j)
+	public Job cancelApplicationToJob(Job j)
 	{
-		
+		return null;
 	}
 	
-	public void postJob(Job j)
+	public Job postJob(Job j)
 	{
-		
+		return null;
 	}
 }

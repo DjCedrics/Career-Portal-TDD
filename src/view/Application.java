@@ -20,8 +20,10 @@ import javax.swing.ListSelectionModel;
 import controller.LoginListener;
 import controller.PanelChangeListener;
 import controller.RegisterListener;
+import model.JobList;
 import model.SocialMediaAccount;
 import model.User;
+import model.UserList;
 
 import javax.swing.JLabel;
 import javax.swing.AbstractAction;
@@ -77,9 +79,37 @@ public class Application {
 	private JButton registerButton;
 	private JButton registerSubmitButton;
 	private JPanel SocialMediaLoginScreen;
+	private JPanel LoginScreen;
+	private JPanel ownedJobPostsScreen;
+	private JPanel jobApplicationsScreen;
+	private JPanel JobSearchScreen;
+	private JPanel JobPostScreen;
+	private JPanel HomeScreen;
+	
+	private JobList jobList;
+	private UserList userList;
 	
 	
 	
+	
+	public JobList getJobList() {
+		return jobList;
+	}
+
+	public void setJobList(JobList jobList) {
+		this.jobList = jobList;
+	}
+
+	public UserList getUserList() {
+		return userList;
+	}
+
+	public void setUserList(UserList userList) {
+		this.userList = userList;
+	}
+	
+	
+
 	public void registerUsingSocialMedia(SocialMediaAccount account) {
 		//Not yet implemented
 	}
@@ -106,6 +136,54 @@ public class Application {
 
 	public void setRegisterScreen(JPanel registerScreen) {
 		RegisterScreen = registerScreen;
+	}
+	
+	public JPanel getLoginScreen() {
+		return LoginScreen;
+	}
+
+	public void setLoginScreen(JPanel loginScreen) {
+		LoginScreen = loginScreen;
+	}
+
+	public JPanel getOwnedJobPostsScreen() {
+		return ownedJobPostsScreen;
+	}
+
+	public void setOwnedJobPostsScreen(JPanel ownedJobPostsScreen) {
+		this.ownedJobPostsScreen = ownedJobPostsScreen;
+	}
+
+	public JPanel getJobApplicationsScreen() {
+		return jobApplicationsScreen;
+	}
+
+	public void setJobApplicationsScreen(JPanel jobApplicationsScreen) {
+		this.jobApplicationsScreen = jobApplicationsScreen;
+	}
+
+	public JPanel getJobSearchScreen() {
+		return JobSearchScreen;
+	}
+
+	public void setJobSearchScreen(JPanel jobSearchScreen) {
+		JobSearchScreen = jobSearchScreen;
+	}
+
+	public JPanel getJobPostScreen() {
+		return JobPostScreen;
+	}
+
+	public void setJobPostScreen(JPanel jobPostScreen) {
+		JobPostScreen = jobPostScreen;
+	}
+
+	public JPanel getHomeScreen() {
+		return HomeScreen;
+	}
+
+	public void setHomeScreen(JPanel homeScreen) {
+		HomeScreen = homeScreen;
 	}
 
 	/**
@@ -138,15 +216,14 @@ public class Application {
 		frame = new JFrame();
 		
 		// Initialize panels
-		JPanel LoginScreen = new JPanel();
-		JPanel ownedJobPostsScreen = new JPanel();
-		JPanel jobApplicationsScreen = new JPanel();
-		JPanel JobSearchScreen = new JPanel();
+		LoginScreen = new JPanel();
+		ownedJobPostsScreen = new JPanel();
+		jobApplicationsScreen = new JPanel();
+		JobSearchScreen = new JPanel();
 		SocialMediaLoginScreen = new JPanel();
-		JPanel JobPostScreen = new JPanel();
+		JobPostScreen = new JPanel();
 		this.RegisterScreen = new JPanel();
-		JPanel HomeScreen = new JPanel();
-		
+		HomeScreen = new JPanel();
 		
 		
 		// Initialize buttons
