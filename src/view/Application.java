@@ -35,6 +35,22 @@ import javax.swing.Action;
 public class Application {
 
 	private JFrame frame;
+	public JTextField getPasswordField() {
+		return passwordField;
+	}
+
+	public void setPasswordField(JTextField passwordField) {
+		this.passwordField = passwordField;
+	}
+
+	public JTextField getLoginField() {
+		return loginField;
+	}
+
+	public void setLoginField(JTextField loginField) {
+		this.loginField = loginField;
+	}
+
 	private JTextField passwordField;
 	private JTextField loginField;
 	private JTextField socialMediaPasswordField;
@@ -54,6 +70,10 @@ public class Application {
 	
 	public void registerTheUser(User u) {
 		//Not yet implemented, is called when register submit button is clicked
+	}
+	
+	public boolean loginWithEmailAndPassword(String email, String password) {
+		return false; //Not yet implemented, unable to register the user
 	}
 
 	public JButton getRegisterSubmitButton() {

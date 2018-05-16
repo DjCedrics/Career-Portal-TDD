@@ -30,6 +30,24 @@ public class UserTest {
 		testApplication.registerTheUser(u1); //Should Register a given user. In other words, should update the UserListArray in UserList class
 		assertEquals(1,UserList.getUsers().size()); //Having added a new user the userlist should be one
 	}
+	@Test
+	public void testLoginUserwithEmailAndPassword() {
+		//Firstly register a user to be able to check for login
+		Application testApplication = new Application();
+		JPanel registerScreen = testApplication.getRegisterScreen();
+		if(registerScreen == null) {
+			fail("Cannot test login since there are problems with registering");
+			return;
+		}
+		User u1 = new User("John", "Doe", 21, "Male", "Bilkent", "Ankara", "johndoe@mail.com", "johndoe123");
+		testApplication.registerTheUser(u1); //Should Register a given user. In other words, should update the UserListArray in UserList class
+		if(UserList.getUsers().size() != 1) { //Having added a new user the userlist should be one
+			fail("Cannot test login since there are problems with registering");
+			return;
+		}
+		//If the registeration is successfull continue with testing the login with email and password feature
+		assertTrue(testApplication.loginWithEmailAndPassword("johndoe@mail.com", "johndoe123")); //Should return true in case of successfull login
+	}
 
 	/**
 	 * Test method for {@link model.User#applyToJob(model.Job)}.
