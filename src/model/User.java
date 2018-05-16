@@ -139,16 +139,23 @@ public class User {
 	
 	public Job applyToJob(Job j)
 	{
-		return null;
+		appliedJobs.add(j);
+		
+		return j;
 	}
 	
 	public Job cancelApplicationToJob(Job j)
 	{
-		return null;
+		appliedJobs.remove(j);
+		
+		return j;
 	}
 	
 	public Job postJob(Job j)
 	{
-		return null;
+		JobList.jobsPosted.add(j);
+		ownedJobPosts.add(j);
+		
+		return j;
 	}
 }

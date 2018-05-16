@@ -76,6 +76,7 @@ public class JobTest {
 		
 		Job j = new Job("Software Developer", "5+ years experience", "SimSoft", u2);
 		
+		assertEquals("The applied jobs list should be 1", 1, u1.getAppliedJobs().size());
 		assertEquals("The job applied should be in applied jobs list", u1.getAppliedJobs().get(u1.getAppliedJobs().size() - 1), u1.applyToJob(j));
 		
 		

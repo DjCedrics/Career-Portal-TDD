@@ -81,8 +81,11 @@ public class UserTest {
 		User u2 = new User("Jane", "Doe", 25, "Female", "Bilkent", "Ankara", "janedoe@mail.com", "janedoe123");
 		
 		Job j = new Job("Software Developer", "5+ years experience", "SimSoft", u2);
+		
+		u1.applyToJob(j);
 
-		assertEquals("The job applied should be in applied jobs list", u1.getAppliedJobs().get(u1.getAppliedJobs().size() - 1), u1.applyToJob(j));
+		assertEquals("Applied jobs list size should be 1", u1.getAppliedJobs().size(), 1);
+		assertEquals("The job applied should be in applied jobs list", u1.getAppliedJobs().get(u1.getAppliedJobs().size() - 1), j);
 	}
 	
 
@@ -127,7 +130,10 @@ public class UserTest {
 		
 		Job j = new Job("Software Developer", "5+ years experience", "SimSoft", u2);
 		
-		assertEquals("Job could not be posted properly", u2.getOwnedJobPosts().get(u2.getOwnedJobPosts().size() - 1), u2.postJob(j));
+		u2.postJob(j);
+		
+		assertEquals("Owned job posts list size should be 1", u2.getOwnedJobPosts().size(), 1);
+		assertEquals("Job posted could not be found in owned job posts list of the user", u2.getOwnedJobPosts().get(u2.getOwnedJobPosts().size() - 1), j);
 		
 	}
 	

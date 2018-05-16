@@ -3,6 +3,7 @@
  */
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 /**
  * UserTest
@@ -13,7 +14,7 @@ import java.util.List;
 public class JobList {
 	
 	// Properties
-	public static List<Job> jobsPosted;
+	public static List<Job> jobsPosted = new ArrayList<Job>();
 	
 	/** JobList Constructor
 	 * @param jobsPosted
@@ -32,6 +33,11 @@ public class JobList {
 	
 	public static Job searchJob(Job j)
 	{
+		if ( jobsPosted.contains(j) )
+		{
+			return jobsPosted.get(jobsPosted.indexOf(j));
+		}
+		
 		return null;
 	}
 	
