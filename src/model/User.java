@@ -5,13 +5,6 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
-
-/**
- * User
- *
- * @author djcedrics
- * @date May 15, 2018
- */
 public class User {
 	
 	
@@ -158,8 +151,4 @@ public class User {
 	{
 		
 	}
-	
-	
-	
-
 }

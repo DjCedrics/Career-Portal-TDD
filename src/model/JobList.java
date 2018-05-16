@@ -4,12 +4,11 @@
 package model;
 
 import java.util.List;
-
 /**
- * JobList
+ * UserTest
  *
- * @author djcedrics
- * @date May 15, 2018
+ * @author Baris Poyraz, Efe Ulas Akay Seyitoglu, Firat Sivrikaya
+ * @date May 12, 2018
  */
 public class JobList {
 	

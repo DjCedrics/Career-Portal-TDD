@@ -6,14 +6,14 @@ package model;
 import java.util.List;
 
 /**
- * SocialMediaAccountList
+ * UserTest
  *
- * @author djcedrics
- * @date May 15, 2018
+ * @author Baris Poyraz, Efe Ulas Akay Seyitoglu, Firat Sivrikaya
+ * @date May 12, 2018
  */
 public class SocialMediaAccountList {
 	
-	private List<SocialMediaAccount> socialMediaAccounts;
+	private static List<SocialMediaAccount> socialMediaAccounts;
 
 	/**
 	 * @param socialMediaAccounts
@@ -23,11 +23,11 @@ public class SocialMediaAccountList {
 		this.socialMediaAccounts = socialMediaAccounts;
 	}
 
-	public List<SocialMediaAccount> getSocialMediaAccounts() {
+	public static List<SocialMediaAccount> getSocialMediaAccounts() {
 		return socialMediaAccounts;
 	}
 
-	public void setSocialMediaAccounts(List<SocialMediaAccount> socialMediaAccounts) {
+	public void  setSocialMediaAccounts(List<SocialMediaAccount> socialMediaAccounts) {
 		this.socialMediaAccounts = socialMediaAccounts;
 	};
 	

@@ -20,6 +20,7 @@ import javax.swing.ListSelectionModel;
 import controller.LoginListener;
 import controller.PanelChangeListener;
 import controller.RegisterListener;
+import model.SocialMediaAccount;
 import model.User;
 
 import javax.swing.JLabel;
@@ -33,6 +34,14 @@ import javax.swing.Action;
  * @date May 15, 2018
  */
 public class Application {
+	
+	public void registerTheUser(User u) {
+		//Not yet implemented, is called when register submit button is clicked
+	}
+	
+	public boolean loginWithEmailAndPassword(String email, String password) {
+		return false; //Not yet implemented, unable to register the user
+	}
 
 	private JFrame frame;
 	public JTextField getPasswordField() {
@@ -67,13 +76,12 @@ public class Application {
 	private JPanel RegisterScreen;
 	private JButton registerButton;
 	private JButton registerSubmitButton;
+	private JPanel SocialMediaLoginScreen;
 	
-	public void registerTheUser(User u) {
-		//Not yet implemented, is called when register submit button is clicked
-	}
 	
-	public boolean loginWithEmailAndPassword(String email, String password) {
-		return false; //Not yet implemented, unable to register the user
+	
+	public void registerUsingSocialMedia(SocialMediaAccount account) {
+		//Not yet implemented
 	}
 
 	public JButton getRegisterSubmitButton() {
@@ -134,7 +142,7 @@ public class Application {
 		JPanel ownedJobPostsScreen = new JPanel();
 		JPanel jobApplicationsScreen = new JPanel();
 		JPanel JobSearchScreen = new JPanel();
-		JPanel SocialMediaLoginScreen = new JPanel();
+		SocialMediaLoginScreen = new JPanel();
 		JPanel JobPostScreen = new JPanel();
 		this.RegisterScreen = new JPanel();
 		JPanel HomeScreen = new JPanel();
@@ -474,5 +482,13 @@ public class Application {
 		
 		backFromRegisterToLoginButton.setBounds(312, 181, 117, 29);
 		RegisterScreen.add(backFromRegisterToLoginButton);
+	}
+
+	public JPanel getSocialMediaLoginScreen() {
+		return SocialMediaLoginScreen;
+	}
+
+	public void setSocialMediaLoginScreen(JPanel socialMediaLoginScreen) {
+		SocialMediaLoginScreen = socialMediaLoginScreen;
 	}
 }

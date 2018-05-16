@@ -8,6 +8,8 @@ import static org.junit.Assert.*;
 import javax.swing.JPanel;
 
 import model.Job;
+import model.SocialMediaAccount;
+import model.SocialMediaAccountList;
 import model.User;
 import model.UserList;
 import view.Application;
@@ -48,6 +50,21 @@ public class UserTest {
 		//If the registeration is successfull continue with testing the login with email and password feature
 		assertTrue(testApplication.loginWithEmailAndPassword("johndoe@mail.com", "johndoe123")); //Should return true in case of successfull login
 	}
+	
+	@Test //This method is present in UserTest class
+	public void testLoginwithSocialMedia() {
+		//Firstly register a user to be able to check for login
+		Application testApplication = new Application();
+		JPanel socialMediaScreen = testApplication.getSocialMediaLoginScreen();
+		if(socialMediaScreen == null) {
+			fail("Cannot test social media feature since there are problems with registering");
+			return;
+		}
+		testApplication.registerUsingSocialMedia(new SocialMediaAccount()); //Should Register a given user. In other words, 
+		//should update the socialMediaAccounts List in SocialMediaAccountList.java
+		assertEquals(1,SocialMediaAccountList.getSocialMediaAccounts().size());
+	}
+	
 
 	/**
 	 * Test method for {@link model.User#applyToJob(model.Job)}.
