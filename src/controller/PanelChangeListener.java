@@ -11,10 +11,10 @@ public class PanelChangeListener implements ActionListener {
 	private JPanel panelTo;
 	
 	
-	public PanelChangeListener(JPanel login, JPanel home) {
+	public PanelChangeListener(JPanel from, JPanel to) {
 		super();
-		this.panelFrom = login;
-		this.panelTo = home;
+		this.panelFrom = from;
+		this.panelTo = to;
 	}
 
 	@Override
