@@ -40,6 +40,7 @@ import javax.swing.Action;
  */
 public class Application {
 	
+	private static final String LOGIN_UNSUCCESSFUL = "Login Unsuccessful";
 	public void registerTheUser(User u) {
 		UserList.getUsers().add(u);
 	}
@@ -349,7 +350,7 @@ public class Application {
 				if(loginWithEmailAndPassword(emailField.getText(),passwordField.getText()))
 					loginButton.addActionListener(new LoginListener(LoginScreen, HomeScreen));
 				else
-					JOptionPane.showMessageDialog(null, "Login Unsuccessful");
+					JOptionPane.showMessageDialog(null, LOGIN_UNSUCCESSFUL);
 			}
 			
 		});

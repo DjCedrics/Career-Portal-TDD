@@ -9,7 +9,7 @@ package model;
  * @author Baris Poyraz, Efe Ulas Akay Seyitoglu, Firat Sivrikaya
  * @date May 12, 2018
  */
-public class SocialMediaAccount {
+public class SocialMediaAccount implements Registrable {
 
 	private enum SOCIAL_MEDIA_TYPE { Facebook, Twitter, Linkedin };
 	

@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import model.Job;
 import model.JobList;
+import model.Registrable;
 import model.User;
 import view.Application;
 
@@ -21,7 +22,7 @@ public class JobListTest {
 		
 		assertNotNull("Job search screen has not been initialized", jobSearchScreen);
 		
-		User u1 = new User("Jane", "Doe", 25, "Female", "Bilkent", "Ankara", "janedoe@mail.com", "janedoe123");
+		Registrable u1 = new User("Jane", "Doe", 25, "Female", "Bilkent", "Ankara", "janedoe@mail.com", "janedoe123");
 		
 		Job j1 = new Job("Software Developer", "5+ years experience", "SimSoft", u1);
 		Job j2 = new Job("Software Developer", "5+ years experience", "Microsoft", u1);

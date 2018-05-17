@@ -17,7 +17,7 @@ public class Job {
 	private String jobTitle;
 	private String description;
 	private String company;
-	private User owner;
+	private Registrable owner;
 	private List<User> applicants;
 	
 	
@@ -29,7 +29,7 @@ public class Job {
 	 * @param owner
 	 * @param applicants
 	 */
-	public Job(String jobTitle, String description, String company, User owner) {
+	public Job(String jobTitle, String description, String company, Registrable owner) {
 		super();
 		this.jobTitle = jobTitle;
 		this.description = description;
@@ -56,10 +56,10 @@ public class Job {
 	public void setCompany(String company) {
 		this.company = company;
 	}
-	public User getOwner() {
+	public Registrable getOwner() {
 		return owner;
 	}
-	public void setOwner(User owner) {
+	public void setOwner(Registrable owner) {
 		this.owner = owner;
 	}
 	public List<User> getApplicants() {
@@ -79,7 +79,7 @@ public class Job {
 	 * @return User who applied for the job
 	 */
 	
-	public User getApplicant(User u)
+	public Registrable getApplicant(Registrable u)
 	{
 		return null;
 	}
@@ -92,7 +92,7 @@ public class Job {
 	 * @return True, if user has an application to the job. False, otherwise.
 	 */
 	
-	public boolean hasApplication(User u)
+	public boolean hasApplication(Registrable u)
 	{
 		return false;
 	}

@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import org.junit.Test;
 
 import model.Job;
+import model.Registrable;
 import model.User;
 import view.Application;
 
@@ -31,8 +32,8 @@ public class JobTest {
 		
 		assertNotNull("Owned job posts screen has not been initialized", ownedJobPostsScreen);
 		
-		User u1 = new User("John", "Doe", 21, "Male", "Bilkent", "Ankara", "johndoe@mail.com", "johndoe123");
-		User u2 = new User("Jane", "Doe", 25, "Female", "Bilkent", "Ankara", "janedoe@mail.com", "janedoe123");
+		Registrable u1 = new User("John", "Doe", 21, "Male", "Bilkent", "Ankara", "johndoe@mail.com", "johndoe123");
+		Registrable u2 = new User("Jane", "Doe", 25, "Female", "Bilkent", "Ankara", "janedoe@mail.com", "janedoe123");
 		
 		Job j = new Job("Software Developer", "5+ years experience", "SimSoft", u2);
 
@@ -51,7 +52,7 @@ public class JobTest {
 		assertNotNull("Owned job posts screen has not been initialized", jobApplicationsScreen);
 		
 		User u1 = new User("John", "Doe", 21, "Male", "Bilkent", "Ankara", "johndoe@mail.com", "johndoe123");
-		User u2 = new User("Jane", "Doe", 25, "Female", "Bilkent", "Ankara", "janedoe@mail.com", "janedoe123");
+		Registrable u2 = new User("Jane", "Doe", 25, "Female", "Bilkent", "Ankara", "janedoe@mail.com", "janedoe123");
 		
 		Job j = new Job("Software Developer", "5+ years experience", "SimSoft", u2);
 		
@@ -72,7 +73,7 @@ public class JobTest {
 		assertNotNull("Owned job posts screen has not been initialized", ownedJobPostsScreen);
 		
 		User u1 = new User("John", "Doe", 21, "Male", "Bilkent", "Ankara", "johndoe@mail.com", "johndoe123");
-		User u2 = new User("Jane", "Doe", 25, "Female", "Bilkent", "Ankara", "janedoe@mail.com", "janedoe123");
+		Registrable u2 = new User("Jane", "Doe", 25, "Female", "Bilkent", "Ankara", "janedoe@mail.com", "janedoe123");
 		
 		Job j = new Job("Software Developer", "5+ years experience", "SimSoft", u2);
 		
