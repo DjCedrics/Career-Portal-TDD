@@ -23,10 +23,12 @@ import controller.PanelChangeListener;
 import controller.RegisterListener;
 import model.JobList;
 import model.SocialMediaAccount;
+import model.SocialMediaAccountList;
 import model.User;
 import model.UserList;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 
@@ -43,14 +45,13 @@ public class Application {
 	}
 	
 	public boolean loginWithEmailAndPassword(String email, String password) {
-		try {
-			User userToAdd = new User(email,password);
-			UserList.getUsers().add(userToAdd);
-			return true;
-		} catch(Exception e) {
-			return false;
+		for(int i = 0; i < UserList.getUsers().size(); i++) {
+			if(UserList.getUsers().get(i).getEmail().equals(email) && UserList.getUsers().get(i).getPassword().equals(password)) {
+				return true;
+			}
 		}
 		
+		return false;
 	}
 
 	private JFrame frame;
@@ -121,8 +122,14 @@ public class Application {
 	
 	
 
-	public void loginUsingSocialMedia(SocialMediaAccount account) {
-		//Not yet implemented
+	public boolean loginUsingSocialMedia(SocialMediaAccount account) {
+		
+		for(int i = 0; i < SocialMediaAccountList.getSocialMediaAccounts().size(); i++) {
+			if(SocialMediaAccountList.getSocialMediaAccounts().get(i).getEmail().equals(account.getEmail()) && 
+					SocialMediaAccountList.getSocialMediaAccounts().get(i).getName().equals(account.getName()));
+				return true;
+		}
+		return false;
 	}
 
 	public JButton getRegisterSubmitButton() {
@@ -263,12 +270,11 @@ public class Application {
 		socialMediaLoginPageButton.addActionListener(new PanelChangeListener(LoginScreen, SocialMediaLoginScreen));
 		backFromOwnedJobPostsToHomeButton.addActionListener(new PanelChangeListener(ownedJobPostsScreen, HomeScreen));
 		backFromJobSearchToHomeButton.addActionListener(new PanelChangeListener(JobSearchScreen, HomeScreen));
-		socialMediaLoginButton.addActionListener(new PanelChangeListener(SocialMediaLoginScreen, HomeScreen));
 		backFromJobPostToHomePageButton.addActionListener(new PanelChangeListener(JobPostScreen, HomeScreen));
 		backFromSocialMediaToLoginButton.addActionListener(new PanelChangeListener(SocialMediaLoginScreen, LoginScreen));
 		appliedJobsButton.addActionListener(new PanelChangeListener(HomeScreen, jobApplicationsScreen));
 		registerButton.addActionListener(new PanelChangeListener(LoginScreen, RegisterScreen));
-		loginButton.addActionListener(new LoginListener(LoginScreen, HomeScreen));
+		
 		ownedJobPostsButton.addActionListener(new PanelChangeListener(HomeScreen, ownedJobPostsScreen));
 		backFromRegisterToLoginButton.addActionListener(new PanelChangeListener(RegisterScreen, LoginScreen));
 		registerSubmitButton.addActionListener(new RegisterListener(RegisterScreen, HomeScreen));
@@ -340,7 +346,10 @@ public class Application {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				loginWithEmailAndPassword(emailField.getText(),passwordField.getText());
+				if(loginWithEmailAndPassword(emailField.getText(),passwordField.getText()))
+					loginButton.addActionListener(new LoginListener(LoginScreen, HomeScreen));
+				else
+					JOptionPane.showMessageDialog(null, "Login Unsuccessful");
 			}
 			
 		});
@@ -469,8 +478,25 @@ public class Application {
 		
 		
 		
-		socialMediaLoginButton.setBounds(162, 186, 117, 29);
+	
+		
+		
 		SocialMediaLoginScreen.add(socialMediaLoginButton);
+		
+		socialMediaLoginButton.setBounds(162, 186, 117, 29);
+		socialMediaLoginButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(loginUsingSocialMedia(new SocialMediaAccount(socialMediaPasswordField.getText(),socialMediaEmailField.getText()))) {
+					socialMediaLoginButton.addActionListener(new PanelChangeListener(SocialMediaLoginScreen, HomeScreen));
+				} else
+					JOptionPane.showMessageDialog(null, "Login Using Social Media Account is Unsuccessful");
+				
+			}
+			
+		});
+		
 		
 		socialMediaPasswordField = new JTextField();
 		socialMediaPasswordField.setText("Social media password");

@@ -25,6 +25,17 @@ public class SocialMediaAccount {
 	private String email;
 	private String password;
 	
+	public SocialMediaAccount(String password1,String email1) {
+		name = "";
+		email = email1;
+		surname = "";
+		age = 0;
+		gender = "";
+		education = "";
+		city = "";
+		password = password1;
+	}
+	
 	public SocialMediaAccount getSOCIAL_MEDIA_TYPE() {
 		return SOCIAL_MEDIA_TYPE;
 	}

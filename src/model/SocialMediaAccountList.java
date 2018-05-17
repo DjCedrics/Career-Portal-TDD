@@ -3,6 +3,7 @@
  */
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,21 +14,21 @@ import java.util.List;
  */
 public class SocialMediaAccountList {
 	
-	private static List<SocialMediaAccount> socialMediaAccounts;
+	private static ArrayList<SocialMediaAccount> socialMediaAccounts = new ArrayList<SocialMediaAccount>();
 
 	/**
 	 * @param socialMediaAccounts
 	 */
-	public SocialMediaAccountList(List<SocialMediaAccount> socialMediaAccounts) {
+	public SocialMediaAccountList(ArrayList<SocialMediaAccount> socialMediaAccounts) {
 		super();
 		this.socialMediaAccounts = socialMediaAccounts;
 	}
 
-	public static List<SocialMediaAccount> getSocialMediaAccounts() {
+	public static ArrayList<SocialMediaAccount> getSocialMediaAccounts() {
 		return socialMediaAccounts;
 	}
 
-	public void  setSocialMediaAccounts(List<SocialMediaAccount> socialMediaAccounts) {
+	public void  setSocialMediaAccounts(ArrayList<SocialMediaAccount> socialMediaAccounts) {
 		this.socialMediaAccounts = socialMediaAccounts;
 	};
 	

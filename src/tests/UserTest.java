@@ -40,11 +40,12 @@ public class UserTest {
 		Application testApplication = new Application();
 		JPanel registerScreen = testApplication.getRegisterScreen();
 		assertNotNull("Cannot test login since the registration screen is null",registerScreen);
-		User u1 = new User("John", "Doe", 21, "Male", "Bilkent", "Ankara", "johndoe@mail.com", "johndoe123");
+		User u1 = new User("Boston", "Celtics", 21, "Male", "Bilkent", "Ankara", "celtics@gmail.com", "Basketball123");
+		User u2 = new User("Clevland", "Cavs", 21, "Male", "Bilkent", "Ankara", "clev@gmail.com", "Clev123");
 		testApplication.registerTheUser(u1); //Should Register a given user. In other words, should update the UserListArray in UserList class
-		assertEquals("Cannot test login since the user cannot be registered",1,UserList.getUsers().size());
-		//If the  above tests are successfull continue with testing the login with email and password feature
-		assertTrue(testApplication.loginWithEmailAndPassword("johndoe@mail.com", "johndoe123")); //Should return true in case of successfull login
+		testApplication.registerTheUser(u2);
+		assertTrue("Successfull login",testApplication.loginWithEmailAndPassword("celtics@gmail.com", "Basketball123")); //Should return true in case of successfull login
+		assertFalse("Unsuccessfull login",testApplication.loginWithEmailAndPassword("clev@gmail.com", "abc1234"));
 	}
 	
 	@Test //This method is present in UserTest class
@@ -53,9 +54,9 @@ public class UserTest {
 		Application testApplication = new Application();
 		JPanel socialMediaScreen = testApplication.getSocialMediaLoginScreen();
 		assertNotNull("Cannot test login since the social media screen is null",socialMediaScreen);
-		testApplication.loginUsingSocialMedia(new SocialMediaAccount()); //Should Register a given user. In other words, 
-		//should update the socialMediaAccounts List in SocialMediaAccountList.java
-		assertEquals(1,SocialMediaAccountList.getSocialMediaAccounts().size());
+		SocialMediaAccount myAccount = new SocialMediaAccount("passworD1","cs458@gmail.com");
+		SocialMediaAccountList.getSocialMediaAccounts().add(myAccount);
+		assertTrue("The user logs in using a Social Media",testApplication.loginUsingSocialMedia(myAccount));//Should verify if the user is in the system
 	}
 	
 
