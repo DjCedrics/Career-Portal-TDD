@@ -81,6 +81,10 @@ public class Job {
 	
 	public Registrable getApplicant(Registrable u)
 	{
+		if ( applicants.contains(u) )
+		{
+			return u;
+		}
 		return null;
 	}
 	
@@ -94,7 +98,7 @@ public class Job {
 	
 	public boolean hasApplication(Registrable u)
 	{
-		return false;
+		return applicants.contains(u);
 	}
 
 }

@@ -36,6 +36,8 @@ public class JobTest {
 		Registrable u2 = new User("Jane", "Doe", 25, "Female", "Bilkent", "Ankara", "janedoe@mail.com", "janedoe123");
 		
 		Job j = new Job("Software Developer", "5+ years experience", "SimSoft", u2);
+		
+		j.getApplicants().add((User) u1);
 
 		assertEquals("The applicant should be in job's applicants list", j.getApplicant(u1), u1);
 	}
@@ -77,8 +79,9 @@ public class JobTest {
 		
 		Job j = new Job("Software Developer", "5+ years experience", "SimSoft", u2);
 		
+		u1.applyToJob(j);
 		assertEquals("The applied jobs list should be 1", 1, u1.getAppliedJobs().size());
-		assertEquals("The job applied should be in applied jobs list", u1.getAppliedJobs().get(u1.getAppliedJobs().size() - 1), u1.applyToJob(j));
+		assertEquals("The job applied should be in applied jobs list", u1.getAppliedJobs().get(u1.getAppliedJobs().size() - 1), j);
 		
 		
 		
