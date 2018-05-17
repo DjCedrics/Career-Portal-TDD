@@ -6,8 +6,6 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 public class User {
-	
-	
 	// Properties
 	private String name;
 	private String surname;
@@ -40,6 +38,19 @@ public class User {
 		this.gender = gender;
 		this.education = education;
 		this.city = city;
+		this.email = email;
+		this.password = password;
+		appliedJobs = new ArrayList<Job>();
+		ownedJobPosts = new ArrayList<Job>();
+	}
+	
+	public User(String email, String password) {
+		this.name = "";
+		this.surname = "";
+		this.age = 0;
+		this.gender = "";
+		this.education = "";
+		this.city = "";
 		this.email = email;
 		this.password = password;
 		appliedJobs = new ArrayList<Job>();
@@ -85,52 +96,33 @@ public class User {
 	public void setCity(String city) {
 		this.city = city;
 	}
-
 	public String getEmail() {
 		return email;
 	}
-
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-
 	public String getPassword() {
 		return password;
 	}
-
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-
 	public SocialMediaAccount getSocialMediaAccount() {
 		return socialMediaAccount;
 	}
-
-
 	public void setSocialMediaAccount(SocialMediaAccount socialMediaAccount) {
 		this.socialMediaAccount = socialMediaAccount;
 	}
-
-
 	public List<Job> getAppliedJobs() {
 		return appliedJobs;
 	}
-
-
 	public void setAppliedJobs(List<Job> appliedJobs) {
 		this.appliedJobs = appliedJobs;
 	}
-
-
 	public List<Job> getOwnedJobPosts() {
 		return ownedJobPosts;
 	}
-
-
 	public void setOwnedJobPosts(List<Job> ownedJobPosts) {
 		this.ownedJobPosts = ownedJobPosts;
 	}

@@ -29,7 +29,7 @@ public class UserTest {
 		JPanel registerScreen = testApplication.getRegisterScreen(); //Gets the registration screen from the Application view
 		assertNotNull(registerScreen); //Check if registration screen is initialized
 		User u1 = new User("John", "Doe", 21, "Male", "Bilkent", "Ankara", "johndoe@mail.com", "johndoe123"); //Create a user
-		testApplication.registerTheUser(u1); //Should Register a given user. In other words, should update the UserListArray in UserList class
+		testApplication.registerTheUser(u1); //Should Register a given user. In other words, should update the user list
 		assertEquals(1,UserList.getUsers().size()); //Having added a new user the userlist should be one
 	}
 	
@@ -52,12 +52,8 @@ public class UserTest {
 		//Firstly register a user to be able to check for login
 		Application testApplication = new Application();
 		JPanel socialMediaScreen = testApplication.getSocialMediaLoginScreen();
-		
-		if(socialMediaScreen == null) {
-			fail("Cannot test social media feature since there are problems with registering");
-			return;
-		}
-		testApplication.registerUsingSocialMedia(new SocialMediaAccount()); //Should Register a given user. In other words, 
+		assertNotNull("Cannot test login since the social media screen is null",socialMediaScreen);
+		testApplication.loginUsingSocialMedia(new SocialMediaAccount()); //Should Register a given user. In other words, 
 		//should update the socialMediaAccounts List in SocialMediaAccountList.java
 		assertEquals(1,SocialMediaAccountList.getSocialMediaAccounts().size());
 	}

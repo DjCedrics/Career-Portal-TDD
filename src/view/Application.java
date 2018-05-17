@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import java.awt.CardLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JPanel;
@@ -30,19 +31,26 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 
 /**
- * Application
+ * UserTest
  *
- * @author djcedrics
- * @date May 15, 2018
+ * @author Baris Poyraz, Efe Ulas Akay Seyitoglu, Firat Sivrikaya
+ * @date May 12, 2018
  */
 public class Application {
 	
 	public void registerTheUser(User u) {
-		//Not yet implemented, is called when register submit button is clicked
+		UserList.getUsers().add(u);
 	}
 	
 	public boolean loginWithEmailAndPassword(String email, String password) {
-		return false; //Not yet implemented, unable to register the user
+		try {
+			User userToAdd = new User(email,password);
+			UserList.getUsers().add(userToAdd);
+			return true;
+		} catch(Exception e) {
+			return false;
+		}
+		
 	}
 
 	private JFrame frame;
@@ -92,6 +100,9 @@ public class Application {
 	
 	
 	
+	
+	
+
 	public JobList getJobList() {
 		return jobList;
 	}
@@ -110,7 +121,7 @@ public class Application {
 	
 	
 
-	public void registerUsingSocialMedia(SocialMediaAccount account) {
+	public void loginUsingSocialMedia(SocialMediaAccount account) {
 		//Not yet implemented
 	}
 
@@ -324,6 +335,15 @@ public class Application {
 		LoginScreen.add(loginField);
 		loginField.setText("Login");
 		loginField.setColumns(10);
+		
+		loginButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				loginWithEmailAndPassword(emailField.getText(),passwordField.getText());
+			}
+			
+		});
 		
 		
 		
@@ -555,6 +575,18 @@ public class Application {
 		
 		registerSubmitButton.setBounds(312, 141, 117, 29);
 		RegisterScreen.add(registerSubmitButton);
+		
+		registerSubmitButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				registerTheUser(new User(nameField.getText(), surnameField.getText(), Integer.parseInt(ageField.getText()), 
+						applicantGenderLabel.getText(), educationField.getText(), cityField.getText(), 
+						emailField.getText(), passwordField.getText()));
+			}
+			
+		});
 		
 		
 		backFromRegisterToLoginButton.setBounds(312, 181, 117, 29);

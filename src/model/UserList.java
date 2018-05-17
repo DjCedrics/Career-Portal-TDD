@@ -15,13 +15,13 @@ import java.util.List;
  */
 public class UserList {
 	
-	public static List<User> users;
+	public static ArrayList<User> users = new ArrayList<User>();
 	
-	public static List<User> getUsers() {
+	public static ArrayList<User> getUsers() {
 		return users;
 	}
 
-	public static void setUsers(List<User> users2) {
+	public static void setUsers(ArrayList<User> users2) {
 		users = users2;
 	}
 
